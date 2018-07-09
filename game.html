@@ -1,91 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>My game</title>
-</head>
-<body>
-  <script>
+  <head>
+    <title>My game</title>
 
-  // Random pick for computer friend
-  function computerPlay (){
-    var choices =["rock", "paper", "scissors"];
-    var computer_move = choices[Math.floor(Math.random() * choices.length)];
-    return computer_move;
-  }
+    <link rel="stylesheet" type="text/css" href="game.css">
 
 
+  </head>
 
+  <body>
 
+    <h1>Human vs. (friendly?)computer</h1>
+    <h2>Winner takes it all!!</h2>
 
-  // Single round logic - does human friend win?
-  function playRound(playerSelection, computerSelection) {
-    var winner = "";
+      <h2>Human: </h2>
+      <div id="humanScore"></div>
+      <h2>Computer: </h2>
+      <div id="computerScore"></div>
+      <h2>Number of ties: </h2>
+      <div id="numberOfTies"></div>
 
-    if(playerSelection === computerSelection){
-      // adds to counter
-      return "It's a tie! You both lose!!!!! You both chose: " + computerSelection;
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 
+    <div id='container'>
 
-    }else if (
+    <div>
 
-      playerSelection == "rock" && computerSelection == "scissors" ||
-      playerSelection == "paper" && computerSelection == "rock" ||
-      playerSelection == "scissors" && computerSelection == "paper" ) {
-      // assign human as winner
-      winner = "Human wins this round! "+ playerSelection + " beats " + computerSelection;
-
-      score++;
-      //adds win to counter
-      return winner;
-
-    }else{
-      //assigns computer as winner
-      winner = "Friendly (?) computer wins this round! " + computerSelection + " beats "+playerSelection;
-      score--;
-      // adds to counter
-      return winner;
-
-    }
-
-  }
-
-  //counters for keeping tally of human wins
-  score = 0;
-
-  // The game
-  function game (){
-    //debugger;
-
-    // Playing 5 rounds/loop
-    for (let i = 1; i <= 5; i++){
-      //assigning variable to computer pick
-      var computerSelection = computerPlay();
-
-      // prompting human for input and assigns to variable
-      var playerSelection = prompt ("Rock, paper or scissors?").toLowerCase();
-      // Make case insensitive !!
-
-      //calls playround
-
-      var winnerOfRound = playRound(playerSelection, computerSelection);
-      console.log("Winner of round: "+ winnerOfRound);
-    }
-    // human wins if win is bigger than lose
-    if(score>0){
-      console.log ( "Human wins the game!");
-
-      //computer wins if lose > win
-    }else if(score<0){
-      console.log("Evil (!) computer wins the game!");
-
-    }else{
-      console.log("Something unexpected happened!");
-    }
-  }
-
-
-  // play game
-  game();
-  </script>
-</body>
+  <script src = "game.js"></script>
+  </body>
 </html>
